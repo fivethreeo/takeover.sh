@@ -56,6 +56,7 @@ cd "${TO}"
 ./busybox echo "Init takeover successful"
 ./busybox echo "Pivoting root..."
 ./busybox mount --make-rprivate /
+./busybox unshare -m
 ./busybox pivot_root . old_root
 ./busybox echo "Chrooting and running init..."
 exec ./busybox chroot . /fakeinit
